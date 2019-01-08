@@ -1,181 +1,229 @@
+<?php
+session_start();
+if(!isset($_SESSION['email'])) {
+   header('location:../login/login.php');
+} else {
+   $hasil = $_SESSION['email'];
+}
+?>
 <!DOCTYPE html>
-<html >
-<head>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Home Admin</title>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v4.8.7, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
-  <meta name="description" content="Web Generator Description">
-  <title>Pariwisata Banua</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="stylesheet" href="assets/gallery/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
+	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
+	<link href="img/favicon.72x72.png" rel="apple-touch-icon" type="image/png" sizes="72x72">
+	<link href="img/favicon.57x57.png" rel="apple-touch-icon" type="image/png">
+	<link href="img/favicon.png" rel="icon" type="image/png">
+	<link href="img/favicon.ico" rel="shortcut icon">
 
-  <link rel="stylesheet" href="dasbut/css/lib/datatables-net/datatables.min.css">
-  <link rel="stylesheet" href="dasbut/css/separate/vendor/datatables-net.min.css">
-
-
-
-
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+<link rel="stylesheet" href="css/lib/lobipanel/lobipanel.min.css">
+<link rel="stylesheet" href="css/separate/vendor/lobipanel.min.css">
+<link rel="stylesheet" href="css/lib/jqueryui/jquery-ui.min.css">
+<link rel="stylesheet" href="css/separate/pages/widgets.min.css">
+    <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="css/lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-e">
+<body class="with-side-menu control-panel control-panel-compact">
 
+	<header class="site-header">
+	    <div class="container-fluid">
+	        <a href="index.php" class="site-logo">
+	            <img class="hidden-md-down" src="img/logo-2.png" alt="">
+	            <img class="hidden-lg-down" src="img/logo-2-mob.png" alt="">
+	        </a>
 
+	        <button id="show-hide-sidebar-toggle" class="show-hide-sidebar">
+	            <span>toggle menu</span>
+	        </button>
 
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                <span class="navbar-caption-wrap">
-                    <a class="navbar-caption text-white display-4" href="index.php">
-                        <h2>Pariwisata Banua</h2>
-                    </a>
-                </span>
-            </div>
-        </div>
+	        <button class="hamburger hamburger--htla">
+	            <span>toggle menu</span>
+	        </button>
+	        <div class="site-header-content">
+	            <div class="site-header-content-in">
+	                <div class="site-header-shown">
+	                    <div class="dropdown dropdown-notification notif">
 
-    </nav>
-</section>
+	                    </div>
+	                    <div class="dropdown user-menu">
+	                        <button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                            <img src="img/avatar-2-64.png" alt="">
+	                        </button>
+	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
+	                            <a class="dropdown-item" href="../login/logout.php"><span class="font-icon glyphicon glyphicon-log-out"></span>Logout</a>
+	                        </div>
+	                    </div>
 
-<section class="engine"><a href="">responsive website templates</a></section><section class="carousel slide cid-rbtCw9WUuO" data-interval="false" id="slider1-o">
-
-
-
-    <div class="full-screen"><div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="4000"><ol class="carousel-indicators"><li data-app-prevent-settings="" data-target="#slider1-o" data-slide-to="0"></li><li data-app-prevent-settings="" data-target="#slider1-o" class=" active" data-slide-to="1"></li><li data-app-prevent-settings="" data-target="#slider1-o" data-slide-to="2"></li></ol><div class="carousel-inner" role="listbox"><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/drawan.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay"></div><img src="assets/images/1.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-center"><h2 class="mbr-fonts-style display-1">Alam Yang Terjaga</h2><p class="lead mbr-text mbr-fonts-style display-5">testetetajhsjhajshjahhsjhajhsjbjbdkajbdjhabsdhjabdashdbsdjahdbjsahbdjbkhd</p></div></div></div></div></div><div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/tes.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay"></div><img src="assets/images/2.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-left"><h2 class="mbr-fonts-style display-1">Rasakan Keramahan Kami</h2><p class="lead mbr-text mbr-fonts-style display-5">Dalam Adat Dan Budaya</p></div></div></div></div></div><div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/bekantan.jpg);"><div class="container container-slide"><div class="image_wrapper"><div class="mbr-overlay" style="opacity: 0.5;"></div><img src="assets/images/3.jpg"><div class="carousel-caption justify-content-center"><div class="col-10 align-right"><h2 class="mbr-fonts-style display-1">Tempat Yang Indah</h2><p class="lead mbr-text mbr-fonts-style display-5">Nikmati Tempat Yang Nyaman Untuk Berlibur Di Banjarmasin</p></div></div></div></div></div></div><a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider1-o"><span aria-hidden="true" class="mbri-left mbr-iconfont"></span><span class="sr-only">Previous</span></a><a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider1-o"><span aria-hidden="true" class="mbri-right mbr-iconfont"></span><span class="sr-only">Next</span></a></div></div>
-
-</section><br>
-<!--disini-->
-            <?php
-             include "koneksi.php";
-            $sql = mysqli_query($koneksi,"SELECT * FROM db_wisata");
-
-
-             $perpage = 3;
-             $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
-             $start = ($page > 1) ? ($page * $perpage) - $perpage : 0;
-
-             $articles = "SELECT * FROM db_wisata LIMIT $start, $perpage";
-             $result2 = mysqli_query($koneksi, $articles);
-
-            $total = mysqli_num_rows($sql);
-            $pages = ceil($total/$perpage);
-            ?>
-
-            <?php while ($row = mysqli_fetch_assoc($result2)) { ?>
-                <div class="container">
-      <div class="rom-btm">
-        <div class="row">
-				<div class="col-md-4">
-					<img src="dasbut/gambar/<?php echo $row['gambar1']?>" class="img-thumbnail">
-				</div>
-        <div class="col-md-6">
-          <br>
-					<h4><a href="tampil.php?id_wisata=<?php echo $row['id_wisata']?>"><?php echo $row['nm_wisata'] ?></a></h4>
-					<p>Wisata : <?php echo $row['wisata'] ?></p>
-          <h6><?php echo $deskripsi = substr($row['deskripsi'], 0, 150);?><small> ........</small></h6><br>
-				</div>
-      </div>
-    </div>
-  </div>
-
-    </div>
-    <br>
-          <div>
-            <?php } ?>
-            <nav aria-label="Page navigation example">
-               <ul class="pagination justify-content-center">
-            <?php for($i=1; $i<=$pages; $i++){ ?>
-              <li class="page-item"><a class="page-link" href="?halaman=<?php echo $i?>"><?php echo $i?></a></li>
-            <?php } ?>
-          </ul>
-        </nav>
-      </div>
-        </div>
+	                    <button type="button" class="burger-right">
+	                        <i class="font-icon-menu-addl"></i>
+	                    </button>
+	                </div><!--.site-header-shown-->
 
 
 
 
 
+	                            </form>
+	                        </div>
+	                    </div><!--.site-header-collapsed-in-->
+	                </div><!--.site-header-collapsed-->
+	            </div><!--site-header-content-in-->
+	        </div><!--.site-header-content-->
+	    </div><!--.container-fluid-->
+	</header><!--.site-header-->
 
-<section class="mbr-section article content9 cid-rbtIKHNY2R" id="content9-u">
+					<div class="mobile-menu-left-overlay"></div>
+					<nav class="side-menu">
+					    <ul class="side-menu-list">
+					        <li class="grey with-sub">
+										<a href="index.php">
+											 <i class="font-icon font-icon-dashboard"></i>
+												<span class="lbl">Home</span>
+										</a>
+													</li>
+													<li class="magenta with-sub">
+																<a href="input.php">
+																		<i class="glyphicon glyphicon-th"></i>
+																		<span class="lbl">Masukkan Data Table</span>
+																</a>
+														</li>
 
-
-
-    <div class="container">
-        <div class="inner-container" style="width: 100%;">
-            <hr class="line" style="width: 25%;">
-            <div class="section-text align-center mbr-fonts-style display-5">
-                    Mobirise is one of the easiest website development tools available today. It also gives you the freedom to develop as many websites as you like given the fact that it is a desktop app.
-                </div>
-            <hr class="line" style="width: 25%;">
-        </div>
-        </div>
-</section>
-
-
-<section once="" class="cid-rbtCewvpUN" id="footer6-n">
-
-
-
-
-
-    <div class="container">
-        <div class="media-container-row align-center mbr-white">
-            <div class="col-12">
-                <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                    © Copyright 2018 Kismis development - All Rights Reserved
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/popper/popper.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="assets/dropdown/js/script.min.js"></script>
-  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
-  <script src="assets/mbr-clients-slider/mbr-clients-slider.js"></script>
-  <script src="assets/masonry/masonry.pkgd.min.js"></script>
-  <script src="assets/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
-  <script src="assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  <script src="assets/slidervideo/script.js"></script>
-  <script src="assets/gallery/player.min.js"></script>
-  <script src="assets/gallery/script.js"></script>
+														<li class="red">
+																	<a href="data.php">
+																			<i class="glyphicon glyphicon-list-alt"></i>
+																			<span class="lbl">Tampilkan Data table</span>
+																	</a>
+															</li>
+                              <li class="red">
+  																	<a href="filterkomentar.php">
+  																			<i class="glyphicon glyphicon-list-alt"></i>
+  																			<span class="lbl">Filter Komentar</span>
+  																	</a>
+  															</li>
+					            </ul>
 
 
-	<script src="dasbut/js/lib/datatables-net/datatables.min.js"></script>
+
+	<script src="js/lib/jquery/jquery-3.2.1.min.js"></script>
+	<script src="js/lib/popper/popper.min.js"></script>
+	<script src="js/lib/tether/tether.min.js"></script>
+	<script src="js/lib/bootstrap/bootstrap.min.js"></script>
+	<script src="js/plugins.js"></script>
+
+	<script type="text/javascript" src="js/lib/jqueryui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/lib/lobipanel/lobipanel.min.js"></script>
+	<script type="text/javascript" src="js/lib/match-height/jquery.matchHeight.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script>
-		$(function() {
-			$('#example').DataTable();
+		$(document).ready(function() {
+            $('.panel').each(function () {
+                try {
+                    $(this).lobiPanel({
+                        sortable: true
+                    }).on('dragged.lobiPanel', function(ev, lobiPanel){
+                        $('.dahsboard-column').matchHeight();
+                    });
+                } catch (err) {}
+            });
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var dataTable = new google.visualization.DataTable();
+				dataTable.addColumn('string', 'Day');
+				dataTable.addColumn('number', 'Values');
+				// A column for custom tooltip content
+				dataTable.addColumn({type: 'string', role: 'tooltip', 'p': {'html': true}});
+				dataTable.addRows([
+					['MON',  130, ' '],
+					['TUE',  130, '130'],
+					['WED',  180, '180'],
+					['THU',  175, '175'],
+					['FRI',  200, '200'],
+					['SAT',  170, '170'],
+					['SUN',  250, '250'],
+					['MON',  220, '220'],
+					['TUE',  220, ' ']
+				]);
+
+				var options = {
+					height: 314,
+					legend: 'none',
+					areaOpacity: 0.18,
+					axisTitlesPosition: 'out',
+					hAxis: {
+						title: '',
+						textStyle: {
+							color: '#fff',
+							fontName: 'Proxima Nova',
+							fontSize: 11,
+							bold: true,
+							italic: false
+						},
+						textPosition: 'out'
+					},
+					vAxis: {
+						minValue: 0,
+						textPosition: 'out',
+						textStyle: {
+							color: '#fff',
+							fontName: 'Proxima Nova',
+							fontSize: 11,
+							bold: true,
+							italic: false
+						},
+						baselineColor: '#16b4fc',
+						ticks: [0,25,50,75,100,125,150,175,200,225,250,275,300,325,350],
+						gridlines: {
+							color: '#1ba0fc',
+							count: 15
+						}
+					},
+					lineWidth: 2,
+					colors: ['#fff'],
+					curveType: 'function',
+					pointSize: 5,
+					pointShapeType: 'circle',
+					pointFillColor: '#f00',
+					backgroundColor: {
+						fill: '#008ffb',
+						strokeWidth: 0,
+					},
+					chartArea:{
+						left:0,
+						top:0,
+						width:'100%',
+						height:'100%'
+					},
+					fontSize: 11,
+					fontName: 'Proxima Nova',
+					tooltip: {
+						trigger: 'selection',
+						isHtml: true
+					}
+				};
+
+				var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+				chart.draw(dataTable, options);
+			}
+			$(window).resize(function(){
+				drawChart();
+				setTimeout(function(){
+				}, 1000);
+			});
 		});
 	</script>
-
-<script src="dasbut/js/app.js"></script>
-
-
+<script src="js/app.js"></script>
 </body>
 </html>
